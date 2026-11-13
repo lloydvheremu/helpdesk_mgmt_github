@@ -33,7 +33,7 @@ class GithubClient:
             {
                 "Accept": "application/vnd.github+json",
                 "X-GitHub-Api-Version": API_VERSION,
-                "User-Agent": "odoo-helpdesk-mgmt-github",
+                "User-Agent": "odoo-github-issue-sync",
             }
         )
         if token:

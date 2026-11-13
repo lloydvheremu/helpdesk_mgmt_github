@@ -9,16 +9,11 @@
     "category": "After-Sales",
     "development_status": "Beta",
     "maintainers": ["lloydvheremu"],
-    "version": "19.0.2.0.0",
-    "depends": ["helpdesk_mgmt"],
-    "external_dependencies": {
-        "python": ["requests"],
-    },
+    "version": "19.0.3.0.0",
+    "depends": ["helpdesk_mgmt", "github_issue_sync"],
     "data": [
         "data/ir_cron_data.xml",
         "views/helpdesk_ticket_team_views.xml",
         "views/helpdesk_ticket_views.xml",
-        "views/res_config_settings_views.xml",
-        "views/res_users_views.xml",
     ],
 }

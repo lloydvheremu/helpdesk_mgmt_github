@@ -2,18 +2,20 @@ from datetime import datetime
 from unittest.mock import patch
 
 import requests
-from psycopg2 import IntegrityError
 
 from odoo.tests import tagged
 from odoo.tests.common import TransactionCase, new_test_user
-from odoo.tools import mute_logger
 
-from odoo.addons.helpdesk_mgmt_github.github_client import API_URL, GithubClient
-
-from .github_mocks import fake_session, make_issue, make_pull_request, make_response
+from odoo.addons.github_issue_sync.github_client import API_URL, GithubClient
+from odoo.addons.github_issue_sync.tests.github_mocks import (
+    fake_session,
+    make_issue,
+    make_pull_request,
+    make_response,
+)
 
 ISSUES_URL = f"{API_URL}/repos/owner/repo/issues"
-LOGGER = "odoo.addons.helpdesk_mgmt_github.models.helpdesk_ticket_team"
+LOGGER = "odoo.addons.github_issue_sync.models.github_issue_sync_mixin"
 
 
 @tagged("post_install", "-at_install")
@@ -280,7 +282,7 @@ class TestGithubSync(TransactionCase):
 
     def test_client_uses_stored_token(self):
         self.env["ir.config_parameter"].sudo().set_param(
-            "helpdesk_mgmt_github.token", "secret"
+            "github_issue_sync.token", "secret"
         )
         client = self.team._github_get_client()
         self.assertEqual(client.session.headers["Authorization"], "Bearer secret")
@@ -325,9 +327,3 @@ class TestGithubSync(TransactionCase):
         self.assertNotIn(disabled, synced)
         self.assertEqual(len(self._tickets()), 1, "a failing team does not stop others")
         self.assertIn("Unexpected error", broken.message_ids[0].body)
-
-    def test_github_login_is_unique_ignoring_case(self):
-        bob = new_test_user(self.env, login="bob")
-        with mute_logger("odoo.sql_db"), self.assertRaises(IntegrityError):
-            bob.github_login = "alice-gh"
-            self.env.flush_all()

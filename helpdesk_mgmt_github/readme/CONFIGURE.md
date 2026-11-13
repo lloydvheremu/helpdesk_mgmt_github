@@ -1,17 +1,6 @@
 To configure this module, you need to:
 
-1.  Create a GitHub [fine-grained personal access token](https://github.com/settings/personal-access-tokens)
-    with read-only access to *Issues* on the repositories you want to
-    sync. For public repositories the token is optional, but GitHub then
-    allows only 60 requests per hour.
-2.  Go to *Settings \> Helpdesk \> GitHub* and paste the token. It is
-    stored as a system parameter that only administrators can read.
-
-    ![Token setting](../static/description/usage_settings_token.png)
-
-3.  Optional: open a user (*Settings \> Users & Companies \> Users*),
-    go to the *Preferences* tab and set the *GitHub Login*. Issues
-    assigned to that GitHub account are then assigned to this user. The
-    login is unique, ignoring case.
-
-    ![GitHub Login on the user](../static/description/usage_user_github_login.png)
+1.  Set the GitHub access token and, optionally, the *GitHub Login* of
+    your users. Both come from the *GitHub Issue Sync*
+    (`github_issue_sync`) module: see its configuration section. The
+    token is in *Settings \> General Settings \> Integrations*.

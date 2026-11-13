@@ -5,7 +5,7 @@ import requests
 
 from odoo.tests.common import BaseCase
 
-from odoo.addons.helpdesk_mgmt_github.github_client import (
+from odoo.addons.github_issue_sync.github_client import (
     API_URL,
     GithubClient,
     GithubError,

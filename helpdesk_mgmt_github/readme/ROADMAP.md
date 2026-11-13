@@ -3,5 +3,4 @@
 - Set the ticket's customer (`partner_id`) from the GitHub author.
 - A ticket has a single assigned user, so only one GitHub assignee is used.
 - Render the Markdown of issue bodies and import issue comments.
-- One token for the whole database, not one per team or per user.
 - Sync GitHub Projects boards (GraphQL API).

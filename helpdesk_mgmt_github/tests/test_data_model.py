@@ -64,16 +64,6 @@ class TestGithubDataModel(TransactionCase):
         self._ticket()
         self.env.flush_all()
 
-    def test_token_is_stored_as_system_parameter(self):
-        settings = self.env["res.config.settings"].create({"github_token": "tok"})
-        settings.execute()
-        self.assertEqual(
-            self.env["ir.config_parameter"]
-            .sudo()
-            .get_param("helpdesk_mgmt_github.token"),
-            "tok",
-        )
-
     def test_copied_team_does_not_keep_github_link(self):
         self.team.write({"github_repo": "odoo/odoo", "github_sync_enabled": True})
         copy = self.team.copy()

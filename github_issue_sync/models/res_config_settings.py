@@ -6,8 +6,8 @@ class ResConfigSettings(models.TransientModel):
 
     github_token = fields.Char(
         string="GitHub Access Token",
-        config_parameter="helpdesk_mgmt_github.token",
+        config_parameter="github_issue_sync.token",
         groups="base.group_system",
-        help="Personal access token used to read issues. It is stored as a "
+        help="Personal access token used to read GitHub issues. It is stored as a "
         "system parameter that only administrators can read.",
     )
