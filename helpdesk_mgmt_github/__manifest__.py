@@ -1,0 +1,19 @@
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
+{
+    "name": "Helpdesk GitHub Sync",
+    "summary": "Import GitHub issues as Helpdesk tickets",
+    "author": "Lloyd Vheremu",
+    "website": "https://github.com/lloydvheremu/helpdesk_mgmt_github",
+    "license": "AGPL-3",
+    "category": "After-Sales",
+    "development_status": "Beta",
+    "maintainers": ["lloydvheremu"],
+    "version": "19.0.3.0.0",
+    "depends": ["helpdesk_mgmt", "github_issue_sync"],
+    "data": [
+        "data/ir_cron_data.xml",
+        "views/helpdesk_ticket_team_views.xml",
+        "views/helpdesk_ticket_views.xml",
+    ],
+}

@@ -1,0 +1,5 @@
+- Choose a stage for closed issues, as the Helpdesk module does.
+- Send changes made in Odoo back to GitHub (two-way sync, planned for v2).
+- Webhooks, so updates arrive immediately instead of with the next run.
+- Render the Markdown of issue bodies and import issue comments.
+- Sync GitHub Projects boards (GraphQL API).
